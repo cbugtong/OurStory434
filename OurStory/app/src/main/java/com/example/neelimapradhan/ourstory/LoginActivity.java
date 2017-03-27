@@ -30,6 +30,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -39,11 +40,21 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
-    /**
-     * Id to identity READ_CONTACTS permission request.
-     */
-    private static final int REQUEST_READ_CONTACTS = 0;
+    int REQUEST_READ_CONTACTS = 0;
 
+    User owner = new User("cbugtong","ilovehci",0,new ArrayList<Event>(),new ArrayList<Event>());
+    User user1 = new User("bbrenan","ilovehci",1,new ArrayList<Event>(),new ArrayList<Event>());
+    User user2 = new User("npradhan","ilovehci",2,new ArrayList<Event>(),new ArrayList<Event>());
+    User user3 = new User("myao","ilovehci",3,new ArrayList<Event>(),new ArrayList<Event>());
+
+    Event event1 = new Event(0,
+            "My Birthday Party!",
+            "Yay it's my birthday!",
+            new ArrayList<String>(),
+            new Date(2017,6,8,0,0),
+            new Date(2017,6,8,23,59),
+            null,
+            null);
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.

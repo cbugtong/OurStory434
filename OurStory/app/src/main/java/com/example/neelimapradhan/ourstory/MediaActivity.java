@@ -20,13 +20,15 @@ import java.util.Date;
  * INCOMPLETE
  */
 
-public class CameraActivity extends AppCompatActivity {
+public class MediaActivity extends AppCompatActivity {
     static final int REQUEST_TAKE_PHOTO = 1;
     String mCurrentPhotoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        
     }
 
 
