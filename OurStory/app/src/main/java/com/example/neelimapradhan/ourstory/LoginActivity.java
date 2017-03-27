@@ -37,11 +37,13 @@ import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
+ * Still need to alter functionality of the activity to handle only the dummy data
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     int REQUEST_READ_CONTACTS = 0;
 
+    /* DUMMY DATA used for testing */
     User owner = new User("cbugtong","ilovehci",0,new ArrayList<Event>(),new ArrayList<Event>());
     User user1 = new User("bbrenan","ilovehci",1,new ArrayList<Event>(),new ArrayList<Event>());
     User user2 = new User("npradhan","ilovehci",2,new ArrayList<Event>(),new ArrayList<Event>());

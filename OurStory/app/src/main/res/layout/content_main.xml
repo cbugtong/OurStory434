@@ -8,13 +8,20 @@
     tools:context="com.example.neelimapradhan.ourstory.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <EditText
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="75dp"
+        tools:layout_editor_absoluteX="16dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hi!"
+        android:text="TECHNICA 2017"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.035" />
 
 </android.support.constraint.ConstraintLayout>
