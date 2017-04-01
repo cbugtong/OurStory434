@@ -20,7 +20,8 @@
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_height="32dp"
         android:hint="Event Name"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@id/imageView2"
@@ -28,30 +29,50 @@
     <Spinner
         android:id="@+id/dates"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_below="@id/name"
+        android:layout_alignBottom="@id/imageView2"
         android:layout_toRightOf="@id/imageView2"
         android:layout_toLeftOf="@+id/times" />
     <Spinner
         android:id="@id/times"
         android:layout_width="96dp"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_below="@id/name"
         android:layout_alignParentRight="true" />
+
+    <Space
+        android:id="@+id/spacer"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView2" />
+
     <EditText
         android:id="@+id/Event_Description"
+        android:textSize="25dp"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:hint="Event Description"
-        android:layout_below="@+id/dates"
+        android:layout_below="@+id/spacer"
         android:layout_alignParentEnd="true" />
     <EditText
         android:id="@+id/Hash_tags"
+        android:textSize="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="#Hash tags"
-        android:layout_below="@+id/Event_Description"
+        android:layout_below="@+id/spacer2"
         android:layout_alignParentEnd="true" />
+    <Space
+        android:id="@+id/spacer2"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Event_Description" />
+
     <Button
         android:id="@+id/Save"
         android:layout_width="96dp"
@@ -66,6 +87,7 @@
         android:layout_below="@id/Hash_tags"
         android:layout_toLeftOf="@id/Save"
         android:text="Cancel" />
+
     <Button
         android:id="@+id/Delete"
         android:layout_width="wrap_content"
