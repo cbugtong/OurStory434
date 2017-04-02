@@ -19,75 +19,145 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<body style="padding-top:70px">
+	<body style="padding-top:100px">
 
 		<div class="container">
-			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<nav class="navbar navbar-default navbar-fixed-top primary-accent" role="navigation">
 				<div class="container">
-					<div class="navbar-header navbar-left">
+					<div class="navbar-header">
 						<div class="navbar-brand">
-							<a href="#">OurStory</a>
+							<a href="index.html"><span class="light-text" style="font-family: Peterbuilt; font-size: 200%;">OurStory</span></a>
 						</div>
 					</div>
 
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="light-text">Neelima's 21st Birthday <span class="caret"></span></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">CMSC434 Presentation</a></li>
+								<li><a href="#">WMUC @ Maryland Day</a></li>
+							</ul>
+						</li>
+					</ul>
+
 					<div class="navbar-right">
-						<p class="navbar-text navbar-right">
-							Evan G.
+						<p class="navbar-text navbar-right light-text">
+							<span class="light-text">Blaise B.</span>
+							&nbsp;
+							<img src="images/profile.png" style="width: 26px; height: 26px; border-radius: 13px">
 						</p>
 					</div>
 				</div>
 			</nav>
 
-			<div class="dropdown">
-				<button class="btn btn-default dropdown-toggle"
-					type="button"
-					id="selectEvent"
-					data-toggle="dropdown"
-					aria-haspopup="true"
-					aria-expanded="true">
-					Technica 2017 <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu" aria-labelledby="selectEvent">
-					<li><a href="#">Other Event 1</a></li>
-					<li><a href="#">Other Event 2</a></li>
-					<li><a href="#">Other Event 3</a></li>
-				</ul>
-			</div>
-
-			<br/>
-
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="active"><a href="#">Event Archive</a></li>
-				<li role="presentation"><a href="review.html">Review</a></li>
+				<li role="presentation"><a href="review.html">Review <span class="badge">26</span></a></li>
 				<li role="presentation"><a href="manage.html">Manage Event</a></li>
 			</ul>
 
 			<br />
 
 			<div class="row">
-				Sorting Sorting Sorting... Filtering Filtering Filtering... Sharing Sharing Sharing...
+				<div style="display: inline-block">
+					Sort By: &nbsp; Date & Time &#9660; &nbsp; &nbsp; Contributor
+				</div>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				<div style="display: inline-block">
+					Filter By: &nbsp;
+				</div>
+				<select style="display: inline-block">
+					<option value="all">All Hashtags</option>
+					<option value="cool">#cool</option>
+					<option value="neat">#neat</option>
+					<option value="pretty neat">#prettyneat</option>
+					<option value="blessed">#blessed</option>
+				</select>
+				<select style="display: inline-block">
+					<option value="all">All Contributors</option>
+					<option value="blaise">Blaise B.</option>
+					<option value="chris">Chris B.</option>
+					<option value="neelima">Neelima P.</option>
+					<option value="mingyu">Mingyu Y.</option>
+				</select>
+				&nbsp;&nbsp;
+				Has:
+				&nbsp;
+				<input type="checkbox"/> Images
+				&nbsp;
+				<input type="checkbox"/> Video
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				<span class-"pull-right">Copy and Share:</span>
+				<input type="text" value="http://totally.valid.url" class="field left" readonly>
+
 			</div>
 
 			<br />
 
+			<!-- First row, content cards -->
 			<div class="row">
-				<div class="col-md-4">
-					<div class="content-card">
-						asd
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<div class="content-card">
+							<img src="images/profile.png" style="width: 26px; height: 26px; border-radius: 13px"> Blaise B.<br/><br/>
+							<img src="images/stock-photo-1.jpeg" style="width: 100%"/>
+							<br /><br />
+							Happy birthday!! That was a ton of fun :) #blessed
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="content-card">
+							<img src="images/profile.png" style="width: 26px; height: 26px; border-radius: 13px"> Blaise B.<br/><br/>
+							Wow! So cool! Birthday parties are the best! Cake! Happiness! 21!
+						</div>
+						<div class="content-card">
+							<img src="images/profile.png" style="width: 26px; height: 26px; border-radius: 13px"> Blaise B.<br/><br/>
+							What an event -- such celebration, so much joy. I'll upload some pictures later after I have gone home and gotten some much-needed rest!!! Then I'll be able to do the same thing tomorrow! Wow! #prettyneat
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="content-card">
+							<img src="images/profile.png" style="width: 26px; height: 26px; border-radius: 13px"> Blaise B.<br/><br/>
+							<img src="images/stock-photo-2.jpeg" style="width: 100%;"/>
+							<br /><br />
+							Such a #cool video of such a #neat event!
+						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="content-card">
-						asd
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-8">
+						<div class="content-card">
+							<img src="images/profile.png" style="width: 26px; height: 26px; border-radius: 13px"> Blaise B.<br/><br/>
+							<img src="images/stock-photo-3.jpeg" style="width: 100%;"/>
+							<br /><br />
+							Check out this #neat, #cool and #blessed panorama I took before the party!!
+						</div>
 					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="content-card">
-						asd
+					<div class="col-md-4">
+						<div class="content-card">
+							<img src="images/profile.png" style="width: 26px; height: 26px; border-radius: 13px"> Blaise B.<br/><br/>
+							<img src="images/stock-photo-4.jpeg" style="width: 100%;"/>
+							<br /><br />
+							Did I tell everyone that this is a yoga party? Because it is.
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<br /><br />
+
+		<footer class="footer primary-accent light-text">
+			<div class="container">
+				CMSC434 - Human Computer Interaction<br />
+				Citizen Event Group<br />
+				Blaise B., Chris B., Neelima P., & Mingyu Y.
+			</div>
+
+		</footer>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

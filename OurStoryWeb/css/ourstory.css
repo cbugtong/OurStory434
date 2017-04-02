@@ -2,5 +2,36 @@
   border: 1px;
   border-style: solid;
   border-radius: 6px;
-  padding: 5px;
+  padding: 8px;
+  margin-top: 10px;
+  background-color: #AAAE8E;
+}
+
+@font-face {
+    font-family: Peterbuilt;
+    src: url(../fonts/Peterbuilt.ttf);
+}
+
+.primary-accent {
+  background-color: #3A606E;
+}
+
+.primary-background {
+  color: #E0E0E0;
+}
+
+.secondary-accent {
+  background-color: #AAAE8E
+}
+
+.light-text {
+  color: #E0E0E0;
+}
+
+.dark-text {
+  color: #3A606E;
+}
+
+.p {
+  color: #3A606E;
 }
