@@ -1,5 +1,6 @@
 package com.example.neelimapradhan.ourstory;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,13 +11,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PreviewActivity extends AppCompatActivity {
 
@@ -59,9 +64,7 @@ public class PreviewActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -113,17 +116,55 @@ public class PreviewActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+            super.onCreateView(inflater,container,savedInstanceState);
+            final int sectionValue = getArguments().getInt(ARG_SECTION_NUMBER);
+
+
             View rootView = inflater.inflate(R.layout.fragment_preview, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
-                textView.setText("Facebook");
+            Button postButton = (Button) rootView.findViewById(R.id.post_button);
+            EditText editView = (EditText) rootView.findViewById(R.id.edit_preview);
+
+            CharSequence fbText = getActivity().getIntent().getExtras().getCharSequence("text"),
+                    twText = fbText,
+                    igText = fbText;
+
+            switch (sectionValue) {
+                case 1:
+                    setAndSaveText(editView,fbText);
+                    textView.setText("Facebook");
+
+                    break;
+                case 2:
+                    setAndSaveText(editView,twText);
+                    textView.setText("Twitter");
+                    break;
+                default:
+                    setAndSaveText(editView,igText);
+                    textView.setText("Instagram");
+                    postButton.setText("Publish!");
             }
-            else if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
-                textView.setText("Twitter");
-            } else {
-                textView.setText("Instagram");
-            }
+
+            postButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (sectionValue == 3) {
+                        AppCompatActivity a = (AppCompatActivity) getActivity();
+                        a.setResult(RESULT_OK, new Intent());
+                        a.finish();
+
+                    } else {
+                        ;
+                    }
+                }
+            });
+
             return rootView;
+        }
+
+        private void setAndSaveText(EditText edit, CharSequence text) {
+            edit.setText(text);
+            text = edit.getText();
         }
     }
 
