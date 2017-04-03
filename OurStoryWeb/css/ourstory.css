@@ -7,6 +7,24 @@
   background-color: #AAAE8E;
 }
 
+.choose-content-area {
+  background-color: #FFF;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.review-card {
+  border: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  padding: 8px;
+  padding-bottom: 15px;
+  margin-top: 15px;
+  background-color: #DDD;
+}
+
+
+
 @font-face {
     font-family: Peterbuilt;
     src: url(../fonts/Peterbuilt.ttf);
