@@ -11,6 +11,7 @@
   background-color: #FFF;
   border-radius: 4px;
   padding: 5px;
+  margin-top: 15px;
 }
 
 .review-card {
@@ -54,6 +55,7 @@
   color: #3A606E;
 }
 
-nav>.open>a {
-  color: #3A606E;
+.navbar-nav>.open>a {
+  background-color: #3A606E;
+  color: red;
 }
