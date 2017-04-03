@@ -57,7 +57,7 @@
         android:background="@drawable/custom_border">
 
         <EditText
-            android:id="@+id/text"
+            android:id="@+id/edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Say Something!"
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="96dp"
             android:elevation="0dp"
-            android:text="Add Media"
+            android:text="@string/add_media"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="-42dp" />
     </LinearLayout>
@@ -107,7 +107,7 @@
         android:layout_marginBottom="4dp">
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/checkBox1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
