@@ -7,8 +7,10 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">Sign in</string>
 
+    <string name="create_event_name">Create an Event</string>
+
     <string name="add_media">Add Media</string>
-    <string name="photo">Pideo</string>
+    <string name="photo">Photo</string>
     <string name="video">Video</string>
     <string-array name="media">
         <item>photo</item>

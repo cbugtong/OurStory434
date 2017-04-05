@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity
     User user = null;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_PREVIEW = 2;
-    static final int REQUEST_EVENT = 3;
+    static final int REQUEST_CREATE_EVENT = 3;
     static final int REQUEST_LOGIN = 4;
 
     @Override
@@ -111,16 +111,23 @@ public class MainActivity extends AppCompatActivity
             ((EditText) findViewById(R.id.edit_text)).setText("");
             Toast.makeText(getApplicationContext(), "Post Published!", Toast.LENGTH_SHORT).show();
 
-        } else if (requestCode == REQUEST_EVENT && resultCode == RESULT_OK) {
-            Toast.makeText(getApplicationContext(), "New Event Published!", Toast.LENGTH_SHORT).show();
-
+        } else if (requestCode == REQUEST_CREATE_EVENT) {
+            switch (resultCode) {
+                case RESULT_OK:
+                    Toast.makeText(getApplicationContext(), "New Event Published!", Toast.LENGTH_SHORT).show();
+                    break;
+                case RESULT_FIRST_USER:
+                    Toast.makeText(getApplicationContext(), "Draft Saved", Toast.LENGTH_SHORT).show();
+                    break;
+                default:
+                    Toast.makeText(getApplicationContext(), "Draft Discarded", Toast.LENGTH_SHORT).show();
+            }
         } else if (requestCode == REQUEST_LOGIN && resultCode == RESULT_OK) {
             Bundle b = (Bundle) data.getExtras().get("user_info");
             if (b != null)
                 user = b.getParcelable("user_info");
 
             Toast.makeText(getApplicationContext(), "Logged in as " + user.username, Toast.LENGTH_SHORT).show();
-
         }
 
 
