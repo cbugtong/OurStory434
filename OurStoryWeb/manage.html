@@ -1,108 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>OurStory</title>
 
-		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>OurStory</title>
 
-		<link href="css/ourstory.css" type="text/css" rel="stylesheet">
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<link href="css/ourstory.css" type="text/css" rel="stylesheet">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-	</head>
-	<body style="padding-top:100px">
+</head>
 
-		<div class="container">
-			<nav class="navbar navbar-default navbar-fixed-top primary-accent" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<div class="navbar-brand">
-							<a href="index.html"><span class="light-text" style="font-family: Peterbuilt; font-size: 200%;">OurStory</span></a>
-						</div>
-					</div>
+<body style="padding-top:100px">
 
-					<ul class="nav navbar-nav">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="light-text">Neelima's 21st Birthday <span class="caret"></span></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">CMSC434 Presentation</a></li>
-								<li><a href="#">WMUC @ Maryland Day</a></li>
-							</ul>
-						</li>
-					</ul>
-
-					<div class="navbar-right">
-						<p class="navbar-text navbar-right light-text">
-							<span class="light-text">Blaise B.</span>
-							&nbsp;
-							<img src="images/blaise.png" style="width: 26px; height: 26px; border-radius: 13px">
-						</p>
-					</div>
-				</div>
-			</nav>
-
-			<ul class="nav nav-tabs">
-				<li role="presentation"><a href="index.html">Event Archive</a></li>
-				<li role="presentation"><a href="review.html">Review <span class="badge">26</span></a></li>
-				<li role="presentation" class="active"><a href="#">Manage Event</a></li>
-			</ul>
-
-			<section class="event-edit" id="event-edit">
-				<div class="row">
-			  	  	<div class="col-md-8">
-	  				<b class=dark-text>Create your event here:</b><br>
-  					<input type="text" name="event_id" size="80" placeholder="Event Name" required><br>
-	  				<b class=dark-text>Choose a date / time for your event:</b><br>
-  					<input type="date" name="event_date" required>&nbsp;<input type="time" name="event_time" required>
-	  				<hr>
-	  			    <b class=dark-text>Choose your Hashtag or create new one:</b><br>
-	  			    <input type="checkbox" name="hash_tag" value="cool">#cool
-	  			    <input type="checkbox" name="hash_tag" value="neat">#neat
-	  			    <input type="checkbox" name="hash_tag" value="prettyneat">#prettyneat
-	  			    <input type="checkbox" name="hash_tag" value="blessed">#blessed&nbsp;
-	  			    <input type="text" name="hash_tag" placeholder="#new_hashtag">
-
-	  			  </div>
-	  			  	<div class="col-md-4">
-	  			  		<b class=dark-text>Upload your event photo:</b><br>
-	  					<input type="image" name="event_img" width="300" height="200" src="images/add_photo.png">
-
-	  			  </div>
-			  	</div>
-			  	<div class="row">
-			  		<b class=dark-text>Make a brief introduction for your event:</b><br>
-			  		<textarea name="event_intro" cols="89" rows="10"
-			  			placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."></textarea>
-			  	</div>
-			  	<div class=container align="right">
-  					<button type="reset" value="Cancel">Cancel</button>
-  					<button type="submit" value="Save">Save</button>
-				</div>
-			</section>
-
-		</div>
-
-		<br /><br />
-
-		<footer class="footer primary-accent light-text" style="padding: 10px">
+	<div class="container">
+		<nav class="navbar navbar-default navbar-fixed-top primary-accent" role="navigation">
 			<div class="container">
-				CMSC434 - Human Computer Interaction<br />
-				Citizen Event Group<br />
-				Blaise B., Chris B., Neelima P., & Mingyu Y.
-			</div>
-		</footer>
+				<div class="navbar-header">
+					<div class="navbar-brand">
+						<img src="images/OurStory.png" style="height: 130%" />
+					</div>
+				</div>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
-	</body>
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="light-text">Neelima's 21st Birthday <span class="caret"></span></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Citizen Event Presentation</a></li>
+							<li><a href="#">HCI Conference @ Stamp</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<div class="navbar-right">
+					<p class="navbar-text navbar-right light-text">
+						<span class="light-text">Blaise B.</span> &nbsp;
+						<img src="images/blaise.png" style="width: 22px; height: 22px; border-radius: 11px">
+					</p>
+				</div>
+			</div>
+		</nav>
+
+		<ul class="nav nav-tabs">
+			<li role="presentation"><a href="index.html">Event Archive</a></li>
+			<li role="presentation"><a href="review.html">Review <span class="badge">2</span></a></li>
+			<li role="presentation" class="active"><a href="#">Manage Event</a></li>
+		</ul>
+
+		<br />
+
+		<section class="event-edit" id="event-edit">
+			<div class="row">
+				<div class="col-md-8">
+					<b class=dark-text>Event Name:</b><br>
+					<input type="text" class="form-control" name="event_id" size="80" placeholder="Event Name" value="Neelima's 21st Birthday" required><br>
+					<b class=dark-text>Location:</b>
+					<div class="input-group">
+						<input class="form-control" type="text" value="38.983249,-76.9444982" name="event_loc" required>
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-globe"></span></button>
+						</span>
+					</div>
+					<br />
+					<div>
+						<b class=dark-text>Date:</b> <input class="form-control" type="date" value="2017-11-24" name="event_date" required> <br />
+						<b class=dark-text>Time:</b> <input class="form-control" type="time" value="20:00" required>
+					</div>
+					<hr>
+					<b class=dark-text>Choose your Hashtag or create new one:</b><br>
+					#cool <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;&nbsp;
+					#neat <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;&nbsp;
+					#prettyneat <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;&nbsp;
+					#blessed <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;&nbsp;
+					<input type="text" name="hash_tag" placeholder="#new_hashtag">
+
+				</div>
+				<div class="col-md-4">
+					<b class=dark-text>Upload your event photo:</b><br>
+					<input type="image" name="event_img" width="300" height="200" src="images/add_photo.png">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-7">
+					<br />
+					<b class=dark-text>Event Description:</b><br>
+					<textarea class="form-control" name="event_intro" cols="89" rows="6">Come celebrate! Wow! Birthday! 21! We'll have all sorts of fun and family-friendly activities! Can't wait :)
+					</textarea>
+
+				</div>
+			</div>
+			<div class="col-md-12" align="right">
+				<button class="btn btn-primary pull-right" type="submit" value="Save">Save</button>
+				<span class="pull-right">&nbsp;&nbsp;</span>
+				<button class="btn btn-default pull-right" type="reset" value="Cancel">Cancel</button>
+			</div>
+		</section>
+
+	</div>
+
+	<br /><br />
+
+	<footer class="footer primary-accent light-text" style="padding: 10px">
+		<div class="container">
+			CMSC434 - Human Computer Interaction<br /> Citizen Event Group<br /> Blaise B., Chris B., Neelima P., & Mingyu Y.
+		</div>
+	</footer>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+</body>
+
 </html>
