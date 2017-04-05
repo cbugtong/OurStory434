@@ -1,8 +1,6 @@
 package com.example.neelimapradhan.ourstory;
 
 import android.graphics.Bitmap;
-import android.location.Location;
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
