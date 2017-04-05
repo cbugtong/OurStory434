@@ -14,14 +14,13 @@ import java.util.List;
 
 public class Event {
     protected int userid;
-    protected String title, description;
+    protected String title, description, location;
     protected List hashtags;
     protected Date startDate, endDate;
-    protected Location location;
     protected Bitmap image;
 
     Event(int userid, String title, String description, List<String> hashtags,
-          Date startDate, Date endDate, Location location, Bitmap image) {
+          Date startDate, Date endDate, String location, Bitmap image) {
 
         this.userid = userid;
         this.title = title;
