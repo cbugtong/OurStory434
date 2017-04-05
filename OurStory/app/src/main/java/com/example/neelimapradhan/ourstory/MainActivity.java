@@ -1,19 +1,9 @@
 package com.example.neelimapradhan.ourstory;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AlertDialog;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -26,25 +16,29 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    User user = null;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_PREVIEW = 2;
+    static final int REQUEST_EVENT = 3;
+    static final int REQUEST_LOGIN = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*Checks for instantiated user*/
+        if (user == null) {
+            startActivityForResult(new Intent(getApplicationContext(),LoginActivity.class),REQUEST_LOGIN);
+        }
+
+        /*EditText Setup*/
         final EditText textBox = (EditText) findViewById(R.id.edit_text);
 
         /*Toolbar Setup*/
@@ -76,6 +70,27 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        /*CheckBox Setup*/
+        final CheckBox check1 = (CheckBox) findViewById(R.id.checkBox1);
+        check1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (check1.isChecked())
+                    textBox.setText(textBox.getText() + " " + check1.getText());
+            }
+        });
+
+        final CheckBox check2 = (CheckBox) findViewById(R.id.checkBox2);
+        check2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (check2.isChecked())
+                    textBox.setText(textBox.getText() + " " + check2.getText());
+            }
+        });
+
+
+        /*Drawer Sidebar Setup*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -89,13 +104,23 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
             //mImageView.setImageBitmap(imageBitmap);
 
         } else if (requestCode == REQUEST_PREVIEW && resultCode == RESULT_OK) {
             ((EditText) findViewById(R.id.edit_text)).setText("");
-            Toast.makeText(getApplicationContext(), "Published!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Post Published!", Toast.LENGTH_SHORT).show();
+
+        } else if (requestCode == REQUEST_EVENT && resultCode == RESULT_OK) {
+            Toast.makeText(getApplicationContext(), "New Event Published!", Toast.LENGTH_SHORT).show();
+
+        } else if (requestCode == REQUEST_LOGIN && resultCode == RESULT_OK) {
+            Bundle b = (Bundle) data.getExtras().get("user_info");
+            if (b != null)
+                user = b.getParcelable("user_info");
+
+            Toast.makeText(getApplicationContext(), "Logged in as " + user.username, Toast.LENGTH_SHORT).show();
+
         }
 
 
@@ -136,7 +161,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -150,7 +175,11 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_share) {
             // Handle the camera action
-        }  else if (id == R.id.nav_add) {
+
+        }  else if (id == R.id.create_event_nav) {
+            Intent createEventIntent = new Intent(this.getApplicationContext(),CreateEventActivity.class);
+            startActivity(createEventIntent);
+            return true;
 
         } else if (id == R.id.nav_upcoming1) {
 

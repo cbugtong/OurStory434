@@ -125,7 +125,7 @@ public class PreviewActivity extends AppCompatActivity {
             Button postButton = (Button) rootView.findViewById(R.id.post_button);
             EditText editView = (EditText) rootView.findViewById(R.id.edit_preview);
 
-            CharSequence fbText = getActivity().getIntent().getExtras().getCharSequence("text"),
+            CharSequence fbText = (CharSequence) getActivity().getIntent().getExtras().get("text"),
                     twText = fbText,
                     igText = fbText;
 

@@ -1,5 +1,8 @@
 package com.example.neelimapradhan.ourstory;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
@@ -9,7 +12,7 @@ import java.util.List;
  * resides in this class.
  */
 
-public class User {
+public class User implements Parcelable {
     protected String username, password;
     protected int userid;
     protected List<Event> admin, member;
@@ -21,5 +24,16 @@ public class User {
         this.userid = userid;
         this.admin = admin;
         this.member = member;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 }

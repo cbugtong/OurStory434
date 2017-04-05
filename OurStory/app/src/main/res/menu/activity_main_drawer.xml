@@ -36,7 +36,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_add"
+            android:id="@+id/create_event_nav"
             android:icon="@drawable/ic_menu_manage"
             android:title="Create" />
     </group>

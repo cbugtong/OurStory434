@@ -69,7 +69,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:text="Neelima got Chik-fil-a to cater for her 21st birthday party! Best party EVER! #feeling21"
         android:layout_below="@+id/imageView4"
         android:layout_toEndOf="@+id/section_label"
         android:layout_marginTop="11dp" />

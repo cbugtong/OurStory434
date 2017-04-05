@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
+import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +41,6 @@ import static android.Manifest.permission.READ_CONTACTS;
  * Still need to alter functionality of the activity to handle only the dummy data
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
-
     int REQUEST_READ_CONTACTS = 0;
 
     /* DUMMY DATA used for testing */
@@ -346,6 +346,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                Bundle b = new Bundle();
+                b.putParcelable("user_info",user1);
+                getIntent().putExtra("user_info",b);
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
