@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.neelimapradhan.ourstory.LinkAccount">
+
+    <Button
+        android:id="@+id/button4"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="236dp"
+        android:layout_height="69dp"
+        android:text="Instagram"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="317dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="313dp"
+        android:layout_height="46dp"
+        android:text="Link Your Accounts"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="36dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="349dp"
+        android:layout_height="40dp"
+        android:text="Authorize OurStory to post your content to your social media platforms"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="89dp" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="231dp"
+        android:layout_height="73dp"
+        android:text="Facebook"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="151dp" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="236dp"
+        android:layout_height="72dp"
+        android:text="Twitter"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="236dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="67dp"
+        android:layout_height="39dp"
+        android:text="->"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="433dp" />
+
+</android.support.constraint.ConstraintLayout>
