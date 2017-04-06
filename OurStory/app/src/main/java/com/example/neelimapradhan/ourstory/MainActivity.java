@@ -20,23 +20,30 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.GregorianCalendar;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    User user = null;
+    /*Citizen Event Presentation*/
+    String [] h1 = {"#APlus","#Power2ThePeople"};
+    Event event1 = new Event("CitizenEvent Presentation",
+            "Group CitizenEvent1 worked very hard to deliver to you this amazing product. We " +
+                    "hope your experience is functional, seamless, and enjoyable.",
+            h1,
+            new GregorianCalendar(),
+            "CSIC 1121",
+            null);
+
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_PREVIEW = 2;
     static final int REQUEST_CREATE_EVENT = 3;
-    static final int REQUEST_LOGIN = 4;
+
+    Bitmap mBitmap = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        /*Checks for instantiated user*/
-        if (user == null) {
-            startActivityForResult(new Intent(getApplicationContext(),LoginActivity.class),REQUEST_LOGIN);
-        }
 
         /*EditText Setup*/
         final EditText textBox = (EditText) findViewById(R.id.edit_text);
@@ -44,7 +51,6 @@ public class MainActivity extends AppCompatActivity
         /*Toolbar Setup*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         /*Add Media Button Setup*/
         Button addMedia = (Button) findViewById(R.id.media_button); //media button will open menu
@@ -56,17 +62,6 @@ public class MainActivity extends AppCompatActivity
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAPTURE);
                 }
-            }
-        });
-
-        /*Post Preview Button Setup*/
-        Button postPreview = (Button) findViewById(R.id.post_button); //media button will open menu
-        postPreview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent previewIntent = new Intent(getApplicationContext(),PreviewActivity.class);
-                previewIntent.putExtra("text",textBox.getText());
-                startActivityForResult(previewIntent,REQUEST_PREVIEW);
             }
         });
 
@@ -89,6 +84,19 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        /*Post Preview Button Setup*/
+        Button postPreview = (Button) findViewById(R.id.post_button); //media button will open menu
+        postPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                check1.setChecked(false);
+                check2.setChecked(false);
+                Intent previewIntent = new Intent(getApplicationContext(),PreviewActivity.class);
+                previewIntent.putExtra("text",textBox.getText());
+                previewIntent.putExtra("image",mBitmap);
+                startActivityForResult(previewIntent,REQUEST_PREVIEW);
+            }
+        });
 
         /*Drawer Sidebar Setup*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -104,12 +112,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-            //mImageView.setImageBitmap(imageBitmap);
+            mBitmap = (Bitmap) data.getExtras().get("data");
 
         } else if (requestCode == REQUEST_PREVIEW && resultCode == RESULT_OK) {
             ((EditText) findViewById(R.id.edit_text)).setText("");
             Toast.makeText(getApplicationContext(), "Post Published!", Toast.LENGTH_SHORT).show();
+            mBitmap = null;
 
         } else if (requestCode == REQUEST_CREATE_EVENT) {
             switch (resultCode) {
@@ -122,12 +130,6 @@ public class MainActivity extends AppCompatActivity
                 default:
                     Toast.makeText(getApplicationContext(), "Draft Discarded", Toast.LENGTH_SHORT).show();
             }
-        } else if (requestCode == REQUEST_LOGIN && resultCode == RESULT_OK) {
-            Bundle b = (Bundle) data.getExtras().get("user_info");
-            if (b != null)
-                user = b.getParcelable("user_info");
-
-            Toast.makeText(getApplicationContext(), "Logged in as " + user.username, Toast.LENGTH_SHORT).show();
         }
 
 
@@ -142,22 +144,6 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.media_menu, menu);
-    }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -181,22 +167,19 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        }
-
         if (id == R.id.nav_share) {
             // Handle the camera action
 
         }  else if (id == R.id.create_event_nav) {
-
             Intent createEventIntent = new Intent(this.getApplicationContext(),CreateEventActivity.class);
             startActivityForResult(createEventIntent,REQUEST_CREATE_EVENT);
-            return true;
 
         } else if (id == R.id.nav_upcoming1) {
+            Intent viewEventIntent = new Intent(this.getApplicationContext(),ViewEventActivity.class);
+            startActivity(viewEventIntent);
 
         } else if (id == R.id.nav_invite) {
+
 
         }
 

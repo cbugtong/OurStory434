@@ -3,6 +3,7 @@ package com.example.neelimapradhan.ourstory;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
@@ -44,44 +45,6 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
     int REQUEST_READ_CONTACTS = 0;
-
-    /* DUMMY DATA used for testing */
-    User owner = new User("cbugtong","ilovehci",0,new ArrayList<Event>(),new ArrayList<Event>());
-    User user1 = new User("bbrenan","ilovehci",1,new ArrayList<Event>(),new ArrayList<Event>());
-    User user2 = new User("npradhan","ilovehci",2,new ArrayList<Event>(),new ArrayList<Event>());
-    User user3 = new User("myao","ilovehci",3,new ArrayList<Event>(),new ArrayList<Event>());
-
-    /*Citizen Event Presentation*/
-    String [] h1 = {"#APlus","#Power2ThePeople"};
-    Event event1 = new Event("CitizenEvent Presentation",
-            "Group CitizenEvent1 worked very hard to deliver to you this amazing product. We " +
-                    "hope your experience is functional, seamless, and enjoyable.",
-            h1,
-            new GregorianCalendar(),
-            "CSIC 1121",
-            null);
-
-    /*Neelima's Birthday Party*/
-    String [] h2 = {"#feeling21","#PartyWithPradhan"};
-    Event event2 = new Event("Neelima's Birthday Party!",
-            "Yay it's my birthday! Come get some Chik-fil-a",
-            h2,
-            new GregorianCalendar(2017,11,23,20,0),
-            "Chik-fil-a",
-            null);
-
-    /*HCI Conference @ Stamp*/
-    String [] h3 = {"#HCI","#HumanCentered"};
-    Event event3 = new Event("HCI Conference @ Stamp",
-            "Human Computer Interaction is an increasingly important field. As computers become" +
-                    " more and more ubiquitous in our everyday lives, we must continually develop" +
-                    " our understanding through a study of technology, psychology, and design",
-            h3,
-            new GregorianCalendar(2017,10,25,12,0),
-            "Stamp Student Union",
-            null);
-
-
 
 
     /**
@@ -127,6 +90,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 attemptLogin();
+            }
+        });
+
+        Button mGoogleSignInButton = (Button) findViewById(R.id.email_sign_in_button_google);
+        mGoogleSignInButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),LinkAccountActivity.class));
+                finish();
             }
         });
 
@@ -224,9 +196,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+//            Bundle b = new Bundle();
+//            b.putParcelable("user_info",user1);
+//            getIntent().putExtra("user_info",b);
+            Intent linkIntent = new Intent(getApplicationContext(),LinkAccountActivity.class);
+            startActivity(linkIntent);
+            finish();
         }
     }
 
@@ -373,10 +348,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                Bundle b = new Bundle();
-                b.putParcelable("user_info",user1);
-                getIntent().putExtra("user_info",b);
-                finish();
+
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

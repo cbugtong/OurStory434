@@ -69,6 +69,8 @@ public class CreateEventActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 
     public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {

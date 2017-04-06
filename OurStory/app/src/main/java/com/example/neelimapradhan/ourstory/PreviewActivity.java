@@ -1,6 +1,7 @@
 package com.example.neelimapradhan.ourstory;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -111,9 +113,15 @@ public class PreviewActivity extends AppCompatActivity {
 
 
             View rootView = inflater.inflate(R.layout.fragment_preview, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             Button postButton = (Button) rootView.findViewById(R.id.post_button);
             EditText editView = (EditText) rootView.findViewById(R.id.edit_preview);
+            ImageView mediaIcon = (ImageView) rootView.findViewById(R.id.social_media);
+            Bitmap b = (Bitmap) savedInstanceState.get("image");
+
+            if (b != null){
+                ImageView image = (ImageView) rootView.findViewById(R.id.photo);
+                image.setImageBitmap(b);
+            }
 
             CharSequence fbText = (CharSequence) getActivity().getIntent().getExtras().get("text"),
                     twText = fbText,
@@ -122,16 +130,22 @@ public class PreviewActivity extends AppCompatActivity {
             switch (sectionValue) {
                 case 1:
                     setAndSaveText(editView,fbText);
-                    textView.setText("Facebook");
+                    mediaIcon.setImageResource(R.drawable.facebook);
+
 
                     break;
                 case 2:
                     setAndSaveText(editView,twText);
-                    textView.setText("Twitter");
+                    mediaIcon.setImageResource(R.drawable.twitter);
+
+                    if (twText.length() > 140)
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                "This post cannot be published because it exceeds Twitter's 140 character limit", Toast.LENGTH_LONG).show();
+
                     break;
                 default:
                     setAndSaveText(editView,igText);
-                    textView.setText("Instagram");
+                    mediaIcon.setImageResource((R.drawable.instagram));
                     postButton.setText("Publish!");
             }
 
