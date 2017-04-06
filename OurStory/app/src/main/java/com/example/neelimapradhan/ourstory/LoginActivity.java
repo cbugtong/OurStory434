@@ -31,7 +31,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -49,14 +51,39 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     User user2 = new User("npradhan","ilovehci",2,new ArrayList<Event>(),new ArrayList<Event>());
     User user3 = new User("myao","ilovehci",3,new ArrayList<Event>(),new ArrayList<Event>());
 
-    Event event1 = new Event(0,
-            "My Birthday Party!",
-            "Yay it's my birthday!",
-            new ArrayList<String>(),
-            new Date(2017,6,8,0,0),
-            new Date(2017,6,8,23,59),
-            null,
+    /*Citizen Event Presentation*/
+    String [] h1 = {"#APlus","#Power2ThePeople"};
+    Event event1 = new Event("CitizenEvent Presentation",
+            "Group CitizenEvent1 worked very hard to deliver to you this amazing product. We " +
+                    "hope your experience is functional, seamless, and enjoyable.",
+            h1,
+            new GregorianCalendar(),
+            "CSIC 1121",
             null);
+
+    /*Neelima's Birthday Party*/
+    String [] h2 = {"#feeling21","#PartyWithPradhan"};
+    Event event2 = new Event("Neelima's Birthday Party!",
+            "Yay it's my birthday! Come get some Chik-fil-a",
+            h2,
+            new GregorianCalendar(2017,11,23,20,0),
+            "Chik-fil-a",
+            null);
+
+    /*HCI Conference @ Stamp*/
+    String [] h3 = {"#HCI","#HumanCentered"};
+    Event event3 = new Event("HCI Conference @ Stamp",
+            "Human Computer Interaction is an increasingly important field. As computers become" +
+                    " more and more ubiquitous in our everyday lives, we must continually develop" +
+                    " our understanding through a study of technology, psychology, and design",
+            h3,
+            new GregorianCalendar(2017,10,25,12,0),
+            "Stamp Student Union",
+            null);
+
+
+
+
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.

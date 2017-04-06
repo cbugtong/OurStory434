@@ -108,6 +108,16 @@
         android:layout_marginTop="8dp">
 
         <EditText
+            android:id="@+id/location_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Location"
+            android:layout_below="@+id/title_field"
+            android:layout_toEndOf="@+id/event_image" />
+
+        <EditText
             android:id="@+id/title_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -138,19 +148,11 @@
             android:id="@+id/date_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title_field"
-            android:layout_toEndOf="@+id/event_image"
             android:ems="10"
-            android:hint="Date" />
-
-        <TextView
-            android:id="@+id/time_field"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Start Time"
-            android:layout_below="@+id/date_field"
+            android:hint="Set Date"
+            android:layout_below="@+id/location_field"
             android:layout_toEndOf="@+id/event_image" />
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

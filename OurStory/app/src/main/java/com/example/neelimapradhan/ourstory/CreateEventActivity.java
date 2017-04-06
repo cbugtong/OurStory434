@@ -5,19 +5,16 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -31,30 +28,25 @@ public class CreateEventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_bar_editable);
+        setContentView(R.layout.app_bar_create_event);
 
         /*Toolbar Setup*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final TextView showTime = (TextView) findViewById(R.id.time_field);
-        showTime.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                DialogFragment newFragment = new TimePickerFragment();
-                newFragment.show(getFragmentManager(),"TimePicker");
-            }
-        });
-
+        /*Setup Date and Time Pickers*/
         final TextView showDate = (TextView) findViewById(R.id.date_field);
         showDate.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getFragmentManager(),"TimePicker");
+
+                DialogFragment timeFragment = new TimePickerFragment();
+                timeFragment.show(getFragmentManager(),"TimePicker");
+
+                DialogFragment dateFragment = new DatePickerFragment();
+                dateFragment.show(getFragmentManager(),"DatePicker");
             }
         });
 
@@ -96,11 +88,12 @@ public class CreateEventActivity extends AppCompatActivity {
         }
 
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            TextView timeText = (TextView) getActivity().findViewById(R.id.time_field);
-            timeText.setText(hourOfDay>12?
-                    (hourOfDay - 12) + ":" + minute + "PM":
-                            hourOfDay + ":" + minute + "AM");
+            TextView dateText = (TextView) getActivity().findViewById(R.id.date_field);
+            GregorianCalendar c = new GregorianCalendar(0,0,0,hourOfDay,minute);
 
+            if (view.isShown())
+                dateText.setText(dateText.getText().toString() + " - " +
+                        new SimpleDateFormat("h:mm a").format(c.getTime()));
         }
     }
 
@@ -121,9 +114,8 @@ public class CreateEventActivity extends AppCompatActivity {
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
             TextView dateText = (TextView) getActivity().findViewById(R.id.date_field);
-            Calendar c = Calendar.getInstance();
-            dateText.setText(c.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) +
-                    " " + day + ", " + year);
+            GregorianCalendar c = new GregorianCalendar(year,month,day);
+            dateText.setText(new SimpleDateFormat("MMMM d, y").format(c.getTime()));
         }
     }
 }

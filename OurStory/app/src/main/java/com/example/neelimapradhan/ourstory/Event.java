@@ -3,6 +3,7 @@ package com.example.neelimapradhan.ourstory;
 import android.graphics.Bitmap;
 import android.location.Location;
 import java.sql.Time;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -13,21 +14,17 @@ import java.util.List;
  */
 
 public class Event {
-    protected int userid;
     protected String title, description, location;
-    protected List hashtags;
-    protected Date startDate, endDate;
+    protected String[] hashtags;
+    protected Calendar startDate, endDate;
     protected Bitmap image;
 
-    Event(int userid, String title, String description, List<String> hashtags,
-          Date startDate, Date endDate, String location, Bitmap image) {
-
-        this.userid = userid;
+    Event(String title, String description, String[] hashtags, Calendar startDate,
+          String location, Bitmap image) {
         this.title = title;
         this.description = description;
         this.hashtags = hashtags;
         this.startDate = startDate;
-        this.endDate = endDate;
         this.location = location;
         this.image = image;
     }

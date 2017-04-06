@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.neelimapradhan.ourstory.LinkAccount">
+    tools:context="com.example.neelimapradhan.ourstory.LinkAccountActivity">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/instagram"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="236dp"
+        android:layout_width="0dp"
         android:layout_height="69dp"
         android:text="Instagram"
-        tools:layout_editor_absoluteX="74dp"
-        tools:layout_editor_absoluteY="317dp" />
+        tools:layout_editor_absoluteY="345dp"
+        tools:layout_editor_absoluteX="74dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -21,42 +21,63 @@
         android:layout_height="46dp"
         android:text="Link Your Accounts"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="36dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginTop="37dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="349dp"
-        android:layout_height="40dp"
-        android:text="Authorize OurStory to post your content to your social media platforms"
+        android:layout_width="374dp"
+        android:layout_height="67dp"
+        android:text="BY using OurStory,you authorize this application to post your content to your social media accounts and agree to our Terms and Conditions"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="89dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/facebook"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="231dp"
         android:layout_height="73dp"
         android:text="Facebook"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="151dp" />
+        tools:layout_editor_absoluteY="179dp"
+        tools:layout_editor_absoluteX="77dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/twitter"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="236dp"
         android:layout_height="72dp"
         android:text="Twitter"
-        tools:layout_editor_absoluteX="74dp"
-        tools:layout_editor_absoluteY="236dp" />
+        tools:layout_editor_absoluteY="265dp"
+        tools:layout_editor_absoluteX="74dp" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="67dp"
-        android:layout_height="39dp"
-        android:text="->"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="433dp" />
+        android:id="@+id/next"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:text=">"
+        style="@style/Widget.AppCompat.Button.Colored"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="137dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="30dp" />
 
 </android.support.constraint.ConstraintLayout>

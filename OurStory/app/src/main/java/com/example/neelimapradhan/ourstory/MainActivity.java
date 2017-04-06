@@ -179,24 +179,27 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
 
         if (id == R.id.nav_share) {
             // Handle the camera action
 
         }  else if (id == R.id.create_event_nav) {
+
             Intent createEventIntent = new Intent(this.getApplicationContext(),CreateEventActivity.class);
-            startActivity(createEventIntent);
+            startActivityForResult(createEventIntent,REQUEST_CREATE_EVENT);
             return true;
 
         } else if (id == R.id.nav_upcoming1) {
 
         } else if (id == R.id.nav_invite) {
 
-        } else if (id == R.id.nav_send) {
-
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
