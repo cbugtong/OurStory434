@@ -16,15 +16,15 @@ import java.util.List;
 public class Event {
     protected String title, description, location;
     protected String[] hashtags;
-    protected Calendar startDate, endDate;
+    protected Calendar date;
     protected Bitmap image;
 
-    Event(String title, String description, String[] hashtags, Calendar startDate,
+    Event(String title, String description, String[] hashtags, Calendar date,
           String location, Bitmap image) {
         this.title = title;
         this.description = description;
         this.hashtags = hashtags;
-        this.startDate = startDate;
+        this.date = date;
         this.location = location;
         this.image = image;
     }

@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.ContextMenu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -125,7 +122,7 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(getApplicationContext(), "New Event Published!", Toast.LENGTH_SHORT).show();
                     break;
                 case RESULT_FIRST_USER:
-                    Toast.makeText(getApplicationContext(), "Draft Saved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Draft Saved [TO BE IMPLEMENTED]", Toast.LENGTH_SHORT).show();
                     break;
                 default:
                     Toast.makeText(getApplicationContext(), "Draft Discarded", Toast.LENGTH_SHORT).show();
@@ -167,19 +164,24 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        if (id == R.id.nav_share) {
-            // Handle the camera action
-
-        }  else if (id == R.id.create_event_nav) {
+        if (id == R.id.create_event_nav) {
             Intent createEventIntent = new Intent(this.getApplicationContext(),CreateEventActivity.class);
             startActivityForResult(createEventIntent,REQUEST_CREATE_EVENT);
 
         } else if (id == R.id.nav_upcoming1) {
             Intent viewEventIntent = new Intent(this.getApplicationContext(),ViewEventActivity.class);
+            viewEventIntent.putExtra("event",1);
             startActivity(viewEventIntent);
+            finish();
+
+        } else if (id == R.id.nav_upcoming2) {
+            Intent viewEventIntent = new Intent(this.getApplicationContext(),ViewEventActivity.class);
+            viewEventIntent.putExtra("event",2);
+            startActivity(viewEventIntent);
+            finish();
 
         } else if (id == R.id.nav_invite) {
-
+            Toast.makeText(getApplicationContext(), "TO BE IMPLEMENTED", Toast.LENGTH_SHORT).show();
 
         }
 

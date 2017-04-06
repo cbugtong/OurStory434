@@ -12,7 +12,7 @@ import java.util.List;
  * resides in this class.
  */
 
-public class User implements Parcelable {
+public class User {
     protected String username, password;
     protected int userid;
     protected List<Event> admin, member;
@@ -24,16 +24,5 @@ public class User implements Parcelable {
         this.userid = userid;
         this.admin = admin;
         this.member = member;
-    }
-
-    @Override
-    public void writeToParcel(Parcel out, int flags) {
-
-    }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
     }
 }

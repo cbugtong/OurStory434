@@ -4,16 +4,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_invite"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@android:drawable/ic_dialog_email"
             android:title="Invites" />
     </group>
 
     <item android:title="Current Events">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_curr"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Technica'17" />
+                android:title="CitizenEvent Presentation" />
         </menu>
     </item>
 
@@ -22,19 +22,19 @@
             <item
                 android:id="@+id/nav_upcoming1"
                 android:icon="@drawable/ic_menu_share"
-                android:title="NSA Cultural Event" />
+                android:title="Neelima's Birthday Party" />
             <item
                 android:id="@+id/nav_upcoming2"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Grace Hopper 2017" />
+                android:icon="@drawable/ic_menu_share"
+                android:title="HCI Conference @ Stamp" />
         </menu>
     </item>
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/create_event_nav"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Create" />
+            android:icon="@android:drawable/ic_input_add"
+            android:title="Create Event" />
     </group>
 
 </menu>

@@ -41,11 +41,14 @@ public class PreviewActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private Bitmap mImageBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_preview);
+        mImageBitmap = (Bitmap) getIntent().getExtras().get("image");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -115,12 +118,16 @@ public class PreviewActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_preview, container, false);
             Button postButton = (Button) rootView.findViewById(R.id.post_button);
             EditText editView = (EditText) rootView.findViewById(R.id.edit_preview);
-            ImageView mediaIcon = (ImageView) rootView.findViewById(R.id.social_media);
-            Bitmap b = (Bitmap) savedInstanceState.get("image");
+            ImageView image = (ImageView) rootView.findViewById(R.id.photo),
+                    mediaIcon = (ImageView) rootView.findViewById(R.id.social_media);
+            TextView name = (TextView) rootView.findViewById(R.id.text_preview),
+                    errorText = (TextView) rootView.findViewById(R.id.error_text);
+            Bundle bundle = getActivity().getIntent().getExtras();
+            Bitmap b = (Bitmap) bundle.get("image");
 
-            if (b != null){
-                ImageView image = (ImageView) rootView.findViewById(R.id.photo);
+            if (bundle != null && b != null){
                 image.setImageBitmap(b);
+                image.setVisibility(View.VISIBLE);
             }
 
             CharSequence fbText = (CharSequence) getActivity().getIntent().getExtras().get("text"),
@@ -131,22 +138,30 @@ public class PreviewActivity extends AppCompatActivity {
                 case 1:
                     setAndSaveText(editView,fbText);
                     mediaIcon.setImageResource(R.drawable.facebook);
+                    name.setText("Christopher Bugtong");
 
 
                     break;
                 case 2:
                     setAndSaveText(editView,twText);
                     mediaIcon.setImageResource(R.drawable.twitter);
+                    name.setText("ItsBugsLife");
 
-                    if (twText.length() > 140)
-                        Toast.makeText(getActivity().getApplicationContext(),
-                                "This post cannot be published because it exceeds Twitter's 140 character limit", Toast.LENGTH_LONG).show();
-
+                    if (editView.getText().length() > 140) {
+                        errorText.setVisibility(View.VISIBLE);
+                        errorText.setText("140 character limit exceeded WILL NOT POST");
+                    }
                     break;
                 default:
                     setAndSaveText(editView,igText);
                     mediaIcon.setImageResource((R.drawable.instagram));
+                    postButton.setVisibility(View.VISIBLE);
                     postButton.setText("Publish!");
+
+                    if (image.getVisibility() != View.VISIBLE) {
+                        errorText.setVisibility(View.VISIBLE);
+                        errorText.setText("Image required - WILL NOT POST");
+                    }
             }
 
             postButton.setOnClickListener(new View.OnClickListener() {

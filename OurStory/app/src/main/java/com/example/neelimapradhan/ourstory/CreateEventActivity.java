@@ -33,7 +33,6 @@ public class CreateEventActivity extends AppCompatActivity {
         /*Toolbar Setup*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /*Setup Date and Time Pickers*/
         final TextView showDate = (TextView) findViewById(R.id.date_field);
