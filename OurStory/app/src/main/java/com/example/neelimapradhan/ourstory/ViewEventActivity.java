@@ -115,6 +115,7 @@ public class ViewEventActivity extends AppCompatActivity
         if (id == R.id.nav_curr) {
             Intent createEventIntent = new Intent(this.getApplicationContext(),MainActivity.class);
             startActivity(createEventIntent);
+            finish();
 
         } else if (id == R.id.create_event_nav) {
             Intent createEventIntent = new Intent(this.getApplicationContext(),CreateEventActivity.class);
