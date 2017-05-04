@@ -15,20 +15,24 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    /*Citizen Event Presentation*/
-    String [] h1 = {"#APlus","#Power2ThePeople"};
-    Event event1 = new Event("CitizenEvent Presentation",
-            "Group CitizenEvent1 worked very hard to deliver to you this amazing product. We " +
-                    "hope your experience is functional, seamless, and enjoyable.",
+    /*Maryland Day @ The Stamp Gallery*/
+    String [] h1 = {"#MarylandDay2017","#MIDPOINT2017"};
+    Event event = new Event("MD Day @ The Stamp Gallery",
+            "The Stamp Student Union's own art exhibition space, The Stamp Gallery, welcomes " +
+                    "visitors on Maryland Day 2017 to experience our current exhibition MIDPOINT 2017, " +
+                    "which showcases three Masters of Fine Arts candidates in the UMD fine arts program." +
+                    " See work by Beki Basch, Hugh Condrey Bryant, and Jessica Van Brakle and see how " +
+                    "their site-specific works display within the gallery's walls.",
             h1,
-            new GregorianCalendar(),
-            "CSIC 1121",
+            new GregorianCalendar(2017,4,29,20,0),
+            "The Stamp Gallery",
             null);
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -41,6 +45,11 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /* Event details setup */
+        ((TextView) findViewById(R.id.view_title)).setText(event.title);
+        ((CheckBox) findViewById(R.id.checkBox1)).setText(event.hashtags[0]);
+        ((CheckBox) findViewById(R.id.checkBox2)).setText(event.hashtags[1]);
 
         /*EditText Setup*/
         final EditText textBox = (EditText) findViewById(R.id.edit_text);

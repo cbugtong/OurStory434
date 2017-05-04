@@ -13,7 +13,7 @@
             <item
                 android:id="@+id/nav_curr"
                 android:icon="@drawable/ic_menu_share"
-                android:title="CitizenEvent Presentation" />
+                android:title="MD Day @ Stamp Gallery" />
         </menu>
     </item>
 
@@ -22,7 +22,7 @@
             <item
                 android:id="@+id/nav_upcoming1"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Neelima's Birthday Party" />
+                android:title="MIDPOINT 2017 Opening Reception" />
             <item
                 android:id="@+id/nav_upcoming2"
                 android:icon="@drawable/ic_menu_share"

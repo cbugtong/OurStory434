@@ -11,56 +11,16 @@
     android:background="@drawable/side_nav_bar">
 
     <ImageView
-        android:id="@+id/social_media"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="88dp"
-        android:layout_height="88dp"
-        android:background="@color/colorPrimary"
-        android:text="O"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text_preview"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_constraintBaseline_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/text_preview"
-        android:layout_width="match_parent"
-        android:layout_height="23dp"
-        android:text="cbugtong"
-        app:layout_constraintLeft_toLeftOf="@+id/social_media"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
-        tools:text="cbugtong"
-        android:textColor="@color/white"
-        android:layout_above="@+id/photo"
-        android:layout_marginBottom="16dp"
-        android:layout_toEndOf="@+id/social_media" />
-
-    <Button
-        android:id="@+id/post_button"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=">"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:visibility="invisible"
-        android:layout_below="@+id/edit_preview"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
-
-    <ImageView
         android:id="@+id/photo"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:adjustViewBounds="false"
-        app:srcCompat="@android:drawable/star_big_on"
-        android:visibility="invisible"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/edit_preview"
         android:layout_below="@+id/social_media"
-        android:layout_alignParentStart="true" />
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_menu_camera"
+        android:visibility="invisible" />
 
     <EditText
         android:id="@+id/edit_preview"
@@ -68,24 +28,86 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:layout_marginTop="16dp"
         android:textColor="@color/white"
-        android:layout_below="@+id/photo"
+        android:layout_above="@+id/post_button"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp" />
+
+
+    <ImageView
+        android:id="@+id/social_media"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:background="@color/colorPrimary"
+        android:text="O"
+        app:layout_constraintBaseline_toBaselineOf="@+id/name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:text="cbugtong"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/social_media"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1"
+        tools:text="cbugtong"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@+id/social_media" />
 
 
     <TextView
         android:id="@+id/error_text"
-        android:textColor="@color/red"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        android:textAlignment="center"
-        android:textSize="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:text="TextView"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:layout_below="@+id/name"
+        android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/social_media"
-        android:text="TextView" />
+        android:visibility="invisible"/>
 
+    <ImageButton
+        android:id="@+id/move_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/move_left"
+        android:layout_marginRight="0dp"
+        android:background="@android:drawable/title_bar"
+        app:srcCompat="@drawable/right" />
+
+    <ImageButton
+        android:id="@+id/move_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:background="@android:drawable/title_bar"
+        app:srcCompat="@drawable/left"
+        android:layout_alignTop="@+id/post_button"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/post_button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="75dp"
+        android:layout_weight="1"
+        android:text="PUBLISH!"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </RelativeLayout>

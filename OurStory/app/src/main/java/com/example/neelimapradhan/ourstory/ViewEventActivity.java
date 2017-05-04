@@ -24,13 +24,17 @@ public class ViewEventActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
         int eventNumber = 0; // null value, no dummy value will assign zero
 
-    /*Neelima's Birthday Party*/
-    String [] h2 = {"#feeling21","#PartyWithPradhan"};
-    Event event2 = new Event("Neelima's Birthday Party!",
-            "Yay it's my birthday! Come get some Chik-fil-a",
+    /*Maryland Day @ Stamp Gallery*/
+    String [] h2 = {"#MarylandDay2017","#MIDPOINT2017"};
+    Event event2 = new Event("Midpoint Opening Reception",
+            "The Stamp Student Union's own art exhibition space, The Stamp Gallery, welcomes " +
+            "visitors to experience our current exhibition MIDPOINT 2017, " +
+            "which showcases three Masters of Fine Arts candidates in the UMD fine arts program." +
+            " See work by Beki Basch, Hugh Condrey Bryant, and Jessica Van Brakle and see how " +
+            "their site-specific works display within the gallery's walls.",
             h2,
-            new GregorianCalendar(2017,11,23,20,0),
-            "Chik-fil-a",
+            new GregorianCalendar(2017,4,29,20,0),
+            "The Stamp Gallery",
             null);
 
     /*HCI Conference @ Stamp*/
