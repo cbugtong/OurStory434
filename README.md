@@ -1,4 +1,4 @@
-# OurStory434
+# OurStory
 Event Coverage and Social Media App developed in Android
 
 # WARNING: The mobile component of OurStory has not been tested on tablets, only cell phones.
